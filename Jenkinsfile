@@ -10,14 +10,14 @@ pipeline {
         stage('Install') {
             steps {
                 echo '[GUARDIAN] Installing dependencies...'
-                sh 'pip install -r requirements.txt'
+                sh 'pip3 install -r requirements.txt --break-system-packages'
             }
         }
 
         stage('Dependency Compatibility Tests') {
             steps {
-                echo '[GUARDIAN] Running dependency compatibility tests...'
-                sh 'python -m pytest test_dependencies.py -v'
+                echo '[GUARDIAN] Running tests...'
+                sh 'python3 -m pytest test_dependencies.py -v'
             }
         }
 
