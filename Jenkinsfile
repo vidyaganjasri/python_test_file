@@ -14,16 +14,10 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Dependency Compatibility Tests') {
             steps {
-                echo '[GUARDIAN] Running tests...'
-                sh 'python -m pytest test_app.py -v'
-            }
-        }
-
-        stage('Done') {
-            steps {
-                echo '[GUARDIAN] Build complete!'
+                echo '[GUARDIAN] Running dependency compatibility tests...'
+                sh 'python -m pytest test_dependencies.py -v'
             }
         }
 
